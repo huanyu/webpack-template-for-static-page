@@ -1,0 +1,23 @@
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+@function torem($values){
+  $list: ();
+
+  @each $value in $values {
+    $unit : unit($value);
+    $val  : parseInt($value);
+    @if ($unit == 'px') {
+      $list: append($list, ( $val / 40 ) + rem);
+    }
+    @else if($unit == 'rem'){
+      $list: append($list, $value);
+    }
+    @else {
+      @warn 'There is no unit conversion for #{$unit}';
+    }
+
+  }
+
+  @return $list;
+}

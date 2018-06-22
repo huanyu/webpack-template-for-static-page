@@ -1,0 +1,40 @@
+.my-button{
+  display: inline-block;
+  padding: torem(6px) torem(20px);
+
+  &.default{
+    border-radius: torem(8px);
+    border:1px solid $color-gray2;
+    color: $color-gray2;
+    background: transparent;
+
+    &.color-primary{
+      border:1px solid $color-primary;
+      color: $color-primary;
+    }
+  }
+  &.primary{
+    background: $color-primary;
+    color: $color-white;
+
+    &.round{
+      border-radius: torem(100px);
+    }
+  }
+
+  &.size-sm{
+    font-size: torem(24px);
+  }
+
+  &.size-lg{
+    display: block;
+    width: 100%;
+    height: torem(88px);
+    font-size: $font-lg;
+  }
+
+  .button-icon{
+    margin: 0 torem(10px) 0 0;
+    vertical-align: middle;
+  }
+}

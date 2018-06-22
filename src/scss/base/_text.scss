@@ -1,0 +1,45 @@
+.f12{font-size: $font-sm}
+.f14{font-size: $font-normal}
+
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+
+//one line text
+.text-ellipsis1{
+  display: -moz-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-orient:vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  line-clamp:1;
+  -webkit-line-clamp:1;
+  -o-line-clamp:1;
+  -ms-line-clamp:1;
+}
+
+//two line text
+.text-ellipsis2{
+  display: -moz-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-orient:vertical;
+  -webkit-box-orient: vertical;
+  -o-box-orient: vertical;
+  -ms-box-orient: vertical;
+  line-clamp:2;
+  -webkit-line-clamp:2;
+  -o-line-clamp:2;
+  -ms-line-clamp:2;
+}

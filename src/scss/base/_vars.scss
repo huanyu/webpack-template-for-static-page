@@ -1,0 +1,24 @@
+$font-family: "PingFang SC","Microsoft YaHei";
+
+$font-size-base: 20px;
+$font-sm: torem(24px);
+$font-normal: torem(28px);
+$font-lg: torem(32px);
+$font-max: torem(36px);
+
+$color-primary: #F39700;
+$color-orange:#ff4401;
+$color-black: #333;
+$color-black2: #000;
+$color-gray: #666;
+$color-gray2: #999;
+$color-gray3: #CCC;
+$color-white: #FFF;
+$color-white2: #FAFAFA;
+$color-white3: #F3F3F5;
+
+$common-border: $color-gray3 1px solid;
+
+.font-sm{font-size: $font-sm}
+.font-normal{font-size: $font-normal}
+.font-lg{font-size: $font-lg}
