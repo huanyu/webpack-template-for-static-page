@@ -54,6 +54,10 @@ img{
   &.dark{
     border-color: $color-gray2;
   }
+
+  &.dark2{
+    border-color: $color-black;
+  }
 }
 
 .arrow-l{
@@ -63,6 +67,14 @@ img{
   border-top: #fff torem(2px) solid;
   border-left: #fff torem(2px) solid;
   transform: rotate(-45deg);
+
+  &.dark{
+    border-color: $color-gray2;
+  }
+
+  &.dark2{
+    border-color: $color-black;
+  }
 
   &.big{
     width: torem(28px);
@@ -178,7 +190,59 @@ img{
     }
   }
 }
+.tab-navigator{
+  .tabs{
+    ul {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      .tab-item{
+        position: relative;
+        flex: 1;
+        padding: torem(10px) 0;
+        border: #e6be76 torem(4px) solid;
+        border-bottom: none;
+        border-top-left-radius: torem(10px);
+        border-top-right-radius: torem(10px);
+        text-align: center;
+        color: $color-black;
+        font-size: torem(30px);
+        &:first-child{
+          border-right: none;
+          border-top-right-radius: 0;
+          &.on{
+            border-top-right-radius: torem(10px);
+          }
+        }
+        &:last-child{
+          border-left: none;
+          border-top-left-radius: 0;
+          &.on{
+            border-top-left-radius: torem(10px);
+          }
+        }
+        &.on{
+          padding: torem(20px) 0;
+          background: linear-gradient(0deg, #e8b86e, #fde29f);
+          border: none
+        }
+      }
+    }
+  }
+  .tab-content{
+    border: #e6be76 torem(4px) solid;
+    border-bottom-left-radius: torem(10px);
+    border-bottom-right-radius: torem(10px);
+    .tab-content-item{
+      display: none;
+      &.on{
+        display: block;
+      }
+    }
+  }
+}
 
+// 两个商品的列表
 .column2-item-list{
   width: 100%;
   li{
@@ -247,5 +311,31 @@ img{
         vertical-align: middle;
       }
     }
+  }
+}
+
+.list-2col{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  .list-item{
+    width: 50%;
+  }
+}
+
+.progress{
+  width: torem(542px);
+  height: torem(40px);
+  border: 1px #f06a57 solid;
+  border-radius: torem(100px);
+  .bar{
+    width: 50%;
+    height: 100%;
+    background-color: #f06a57;
+    border-radius: torem(100px);
+    text-align: center;
+    color: #fff;
+    font-size: $font-sm;
   }
 }
