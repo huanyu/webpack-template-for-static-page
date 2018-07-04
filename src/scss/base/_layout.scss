@@ -1,6 +1,34 @@
-body{
-
+@media screen and (max-width: 320px){
+  html{
+    font-size: 17.0666667px;
+  }
 }
+@media screen and (max-width: 374px){
+  html{
+    font-size: 19.2px;
+  }
+}
+@media screen and (min-width: 375px){
+  html{
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 414px){
+  html{
+    font-size: 22.08px;
+  }
+}
+@media screen and (min-width: 768px){
+  html{
+    font-size: 40.96px;
+  }
+}
+@media screen and (min-width: 1024px){
+  html{
+    font-size: 54.6133333px;
+  }
+}
+body{}
 body.no-scroll{
   overflow: hidden;
 }
