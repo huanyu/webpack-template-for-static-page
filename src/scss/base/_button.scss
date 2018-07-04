@@ -1,11 +1,13 @@
 button{
   border: none;
+  -webkit-appearance: none;
 }
 .mfw-button{
   display: inline-block;
   padding: torem(6px) torem(20px);
   border-radius: torem(8px);
   text-align: center;
+  font-size: $font-normal;
 
   &.default{
     border:1px solid $color-gray2;
@@ -27,7 +29,7 @@ button{
   }
 
   &.size-sm{
-    font-size: torem(24px);
+    font-size: $font-sm;
   }
 
   &.size-lg{
