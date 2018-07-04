@@ -41,7 +41,7 @@
         position: relative;
         flex: 1;
         padding: torem(10px) 0;
-        border: #e6be76 torem(4px) solid;
+        border: $color-primary torem(4px) solid;
         border-bottom: none;
         border-top-left-radius: torem(10px);
         border-top-right-radius: torem(10px);
@@ -64,14 +64,14 @@
         }
         &.on{
           padding: torem(20px) 0;
-          background: linear-gradient(0deg, #eb8300, #fde29f);
+          background: linear-gradient(0deg, $color-primary, #fffefe);
           border: none
         }
       }
     }
   }
   .tab-content{
-    border: #e6be76 torem(4px) solid;
+    border: $color-primary torem(4px) solid;
     border-bottom-left-radius: torem(10px);
     border-bottom-right-radius: torem(10px);
     .tab-content-item{

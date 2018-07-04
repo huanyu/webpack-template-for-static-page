@@ -10,8 +10,8 @@ button{
   font-size: $font-normal;
 
   &.default{
-    border:1px solid $color-gray2;
-    color: $color-gray2;
+    border:1px solid $color-primary;
+    color: $color-primary;
     background: transparent;
 
     &.color-primary{

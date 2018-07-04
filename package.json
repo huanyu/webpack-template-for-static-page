@@ -1,5 +1,5 @@
 {
-  "name": "mfw framework",
+  "name": "mfwFramework",
   "version": "0.0.1",
   "description": "a simple framework and build tools for anyone to create static html page.",
   "main": "index.js",
