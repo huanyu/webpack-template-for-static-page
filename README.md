@@ -15,6 +15,6 @@ $ npm run build
 
 ```
 
-## 参考、使用的项目
+## References
 * [FastClick](https://github.com/ftlabs/fastclick) ([MIT License](https://github.com/ftlabs/fastclick/blob/master/LICENSE))
 * [normalize.css](https://github.com/necolas/normalize.css) ([MIT License](https://github.com/necolas/normalize.css/blob/master/LICENSE.md))
