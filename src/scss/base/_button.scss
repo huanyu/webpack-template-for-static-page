@@ -19,13 +19,14 @@ button{
       color: $color-primary;
     }
   }
+
   &.primary{
     background: $color-primary;
     color: $color-white;
+  }
 
-    &.round{
-      border-radius: torem(100px);
-    }
+  &.round{
+    border-radius: torem(100px);
   }
 
   &.size-sm{
