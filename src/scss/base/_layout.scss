@@ -119,3 +119,13 @@ body.no-scroll{
     }
   }
 }
+
+.page-components .section-content{
+  padding: 0.5rem;
+}
+.page-components .section-content .mfw-button{
+  margin-bottom: 0.5rem;
+}
+.page-components .section-content .mfw-button:last-child{
+  margin-bottom: 0;
+}

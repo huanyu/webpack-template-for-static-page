@@ -10,139 +10,69 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <meta name="format-detection" content="telephone=no">
-    <title>组件测试</title>
+    <title>mfw framwork</title>
 </head>
 <body>
-<style>
-    .page-components .section-content{
-        padding: 0.5rem;
-    }
-    .page-components .section-content .mfw-button{
-        margin-bottom: 0.5rem;
-    }
-    .page-components .section-content .mfw-button:last-child{
-        margin-bottom: 0;
-    }
-</style>
 <div class="mfw-page page-components">
     <div class="mfw-page-header">
-        <div class="left"><a href="javascript:history.back();" class="btn-back"><em class="arrow-l big"></em></a></div>
-        <div class="middle"><p class="title text-ellipsis1">组件测试</p></div>
+        <div class="left"></div>
+        <div class="middle"><p class="title text-ellipsis1">mfw framwork</p></div>
     </div>
 
-    <div class="mfw-page-section">
-        <div class="section-header clear-fix">
-            <span class="tit">按钮</span>
-        </div>
-        <div class="section-content">
-            <button class="mfw-button default size-sm">default size-sm</button>
-            <button class="mfw-button default">default size-normal</button>
-            <button class="mfw-button default size-lg">default size-lg</button>
-            <button class="mfw-button default round size-sm">default round size-sm</button>
-            <button class="mfw-button default round">default round size-normal</button>
-            <button class="mfw-button default round size-lg">default round size-lg</button>
-            <button class="mfw-button primary size-sm">primary size-sm</button>
-            <button class="mfw-button primary">primary size-normal</button>
-            <button class="mfw-button primary size-lg">primary size-lg</button>
-            <button class="mfw-button primary round size-sm">primary round size-sm</button>
-            <button class="mfw-button primary round">primary round size-normal</button>
-            <button class="mfw-button primary round size-lg">primary round size-lg</button>
-        </div>
-    </div>
-
-    <div class="mfw-page-section">
-        <div class="section-header clear-fix">
-            <span class="tit">弹层</span>
-            <a href="#" class="menu">查看更多<em class="arrow-r"></em></a>
-        </div>
-        <div class="section-content">
-            <button id="btn_toast" class="mfw-button primary size-lg">toast</button>
-            <button id="btn_alert" class="mfw-button primary size-lg">alert</button>
-            <button id="btn_confirm" class="mfw-button primary size-lg">confirm</button>
-        </div>
-    </div>
-
-    <div class="mfw-page-section">
-        <div class="section-header clear-fix">
-            <span class="tit">Tab</span>
-        </div>
-        <div class="section-content">
-            <div id="myTab" class="mfw-tab" onChange="onTabChange">
-                <ul>
-                    <li class="tab-item on" value="0">全部</li>
-                    <li class="tab-item" value="1">待付款</li>
-                    <li class="tab-item" value="2">待收货</li>
-                    <li class="tab-item" value="3">已完成</li>
-                </ul>
-            </div>
-            <div id="tabNav" class="mfw-tab-navigator" style="margin-top: 30px">
-                <div class="tabs">
-                    <ul>
-                        <li class="tab-item on" value="0">tab0</li>
-                        <li class="tab-item" value="1">tab1</li>
-                    </ul>
-                </div>
-                <div class="tab-content">
-                    <ul class="tab-content-list">
-                        <li class="tab-content-item on">tab0的内容</li>
-                        <li class="tab-content-item">tab1的内容</li>
-                    </ul>
-                </div>
+    <div class="mfw-cells-list">
+        <div class="mfw-cell">
+            <label>Button</label>
+            <div class="cell-content">
+                <a href="button.html">
+                    <div class="cell-right">
+                        <span class="desc">see how to use Button</span>
+                        <em class="arrow-r"></em>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-
-    <div class="mfw-page-section">
-        <div class="section-header clear-fix">
-            <span class="tit">Template</span>
+        <div class="mfw-cell">
+            <label>Pop Up</label>
+            <div class="cell-content">
+                <a href="popup.html">
+                    <div class="cell-right">
+                        <span class="desc">see how to use Pop up</span>
+                        <em class="arrow-r"></em>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div id="tempTestContainer" class="section-content">
+        <div class="mfw-cell">
+            <label>Tab</label>
+            <div class="cell-content">
+                <a href="tab.html">
+                    <div class="cell-right">
+                        <span class="desc">see how to use Tab</span>
+                        <em class="arrow-r"></em>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="mfw-cell">
+            <label>js template</label>
+            <div class="cell-content">
+                <a href="jstemplate.html">
+                    <div class="cell-right">
+                        <span class="desc">see how to use a template</span>
+                        <em class="arrow-r"></em>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
 </div>
-<script type="text/template" id="myTemplate">
-    <div class="demo">
-        <h1>{{name}}</h1>
-        <p>{{content}}</p>
-    </div>
-</script>
+
 <script type="text/javascript">
     window.mfwPage = {
-        components: ['alert', 'toast', 'confirm', 'Tab', 'TabNavigator'],
-        templates: ['myTemplate'],
+        components: ['alert', 'toast', 'confirm'],
         mounted:function () {
             console.log('页面加载完成执行2')
-            let _t = this
-            $('#btn_toast').click(function () {
-                _t.toast('这是一条toast的消息')
-            })
-            $('#btn_alert').click(function () {
-                _t.alert({content: '这是alert的内容', position: 'bottom', okCallBack: function () {
-                    _t.toast('alert 关闭')
-                }})
-                _t.alert({content: '这是alert2的内容', position: 'bottom', okCallBack: function () {
-                    _t.toast('alert2 关闭')
-                }})
-            })
-            $('#btn_confirm').click(function () {
-                _t.confirm({
-                    content: '这是confirm的内容',
-                    position: 'bottom',
-                    okCallBack: function () {
-                        _t.toast('confirm 关闭')
-                    },
-                    cancelCallBack: function () {
-                        _t.toast('cancel 关闭')
-                    },
-                })
-            })
-
-            new this.Tab(document.getElementById('myTab'), function (value) {
-                console.log('tabChange:', value)
-            })
-            new this.TabNavigator(document.getElementById('tabNav'))
-            $('#tempTestContainer').html(this.template.myTemplate({name: 'hb', content: 'test message'}))
         },
     }
 </script>

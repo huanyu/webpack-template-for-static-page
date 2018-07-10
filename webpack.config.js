@@ -81,9 +81,30 @@ module.exports = {
         ),
         new HtmlWebpackPlugin(
             {
-                template: './src/test.html',// 模板文件
-                filename: 'test.html',
-                chunks: ['jquery','base',"test"],
+                template: './src/jstemplate.html',// 模板文件
+                filename: 'jstemplate.html',
+                chunks: ['jquery','base'],
+            }
+        ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/tab.html',// 模板文件
+                filename: 'tab.html',
+                chunks: ['jquery','base'],
+            }
+        ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/popup.html',// 模板文件
+                filename: 'popup.html',
+                chunks: ['jquery','base'],
+            }
+        ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/button.html',// 模板文件
+                filename: 'button.html',
+                chunks: ['jquery','base'],
             }
         ),
         new CopyWebpackPlugin([

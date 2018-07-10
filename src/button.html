@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>组件测试</title>
+</head>
+<body>
+<div class="mfw-page page-components">
+    <div class="mfw-page-header">
+        <div class="left"><a href="javascript:history.back();" class="btn-back"><em class="arrow-l big"></em></a></div>
+        <div class="middle"><p class="title text-ellipsis1">Button</p></div>
+    </div>
+
+    <div class="mfw-page-section">
+        <div class="section-header clear-fix">
+            <span class="tit">Button</span>
+        </div>
+        <div class="section-content">
+            <button class="mfw-button default size-sm">default size-sm</button>
+            <button class="mfw-button default">default size-normal</button>
+            <button class="mfw-button default size-lg">default size-lg</button>
+            <button class="mfw-button default round size-sm">default round size-sm</button>
+            <button class="mfw-button default round">default round size-normal</button>
+            <button class="mfw-button default round size-lg">default round size-lg</button>
+            <button class="mfw-button primary size-sm">primary size-sm</button>
+            <button class="mfw-button primary">primary size-normal</button>
+            <button class="mfw-button primary size-lg">primary size-lg</button>
+            <button class="mfw-button primary round size-sm">primary round size-sm</button>
+            <button class="mfw-button primary round">primary round size-normal</button>
+            <button class="mfw-button primary round size-lg">primary round size-lg</button>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    window.mfwPage = {
+        mounted:function () {
+            console.log('页面加载完成执行2')
+        },
+    }
+</script>
+</body>
+</html>
