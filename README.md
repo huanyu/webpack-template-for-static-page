@@ -1,6 +1,7 @@
 webpack-template-for-static-page
 
->This is a simple framework and build tools for anyone to create static html page. It is far beyond complete right now.
+>This is a simple framework and a build tool for anyone to create static html page, with es6/scss support.
+>It is far beyond complete right now, do not use it in production.
 
 ## Build Setup
 
