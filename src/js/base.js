@@ -5,6 +5,7 @@ import '../scss/base.scss'
 
 import {toast, alert, confirm} from './base/components/popup'
 import {Tab, TabNavigator} from './base/components/tab'
+const Handlebars = require('handlebars/dist/handlebars.min')
 
 const initPage = function (page) {
     if (page) {
@@ -30,6 +31,23 @@ const initPage = function (page) {
                         break;
                 }
             }
+        }
+        if (page.hasOwnProperty('templates')){
+            let complied = {}
+            for(var i = 0; i < page.templates.length; i++) {
+                let key = page.templates[i]
+                let templObj = document.getElementById(key)
+                if (templObj) {
+                    try {
+                        complied[key] = Handlebars.compile(templObj.innerHTML)
+                    } catch (e) {
+                        complied[key] = null
+                    }
+                } else {
+                    complied[key] = null
+                }
+            }
+            page.template = complied
         }
         if (page.hasOwnProperty('mounted')){
             page.mounted()

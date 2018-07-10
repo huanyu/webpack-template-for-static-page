@@ -92,11 +92,25 @@
         </div>
     </div>
 
-</div>
+    <div class="mfw-page-section">
+        <div class="section-header clear-fix">
+            <span class="tit">Template</span>
+        </div>
+        <div id="tempTestContainer" class="section-content">
+        </div>
+    </div>
 
+</div>
+<script type="text/template" id="myTemplate">
+    <div class="demo">
+        <h1>{{name}}</h1>
+        <p>{{content}}</p>
+    </div>
+</script>
 <script type="text/javascript">
     window.mfwPage = {
         components: ['alert', 'toast', 'confirm', 'Tab', 'TabNavigator'],
+        templates: ['myTemplate'],
         mounted:function () {
             console.log('页面加载完成执行2')
             let _t = this
@@ -128,6 +142,7 @@
                 console.log('tabChange:', value)
             })
             new this.TabNavigator(document.getElementById('tabNav'))
+            $('#tempTestContainer').html(this.template.myTemplate({name: 'hb', content: 'test message'}))
         },
     }
 </script>
