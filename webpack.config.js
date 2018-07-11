@@ -16,11 +16,10 @@ module.exports = {
     entry: {
     	jquery: 'jquery',
         base: './src/js/base.js',
-        index: './src/js/index.js',
-        test: './src/js/test.js',
+        index: './src/js/index.js'
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, './dist')
     },
     module: {
@@ -68,7 +67,19 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: '../',
+                            name: 'font/[name].[ext]',     //在哪里生成
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
@@ -104,6 +115,13 @@ module.exports = {
             {
                 template: './src/button.html',// 模板文件
                 filename: 'button.html',
+                chunks: ['jquery','base'],
+            }
+        ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/header.html',// 模板文件
+                filename: 'header.html',
                 chunks: ['jquery','base'],
             }
         ),

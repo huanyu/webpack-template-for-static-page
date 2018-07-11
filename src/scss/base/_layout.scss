@@ -67,7 +67,7 @@ body.no-scroll{
     .title{
       margin: 0 auto;
       padding-right: torem(50px);
-      width: 70%;
+      width: 80%;
       font-size: $font-lg;
     }
 
@@ -79,15 +79,26 @@ body.no-scroll{
         height: torem(60px);
         border: none;
         border-radius: 100px;
-        background-color: #EF7700;
-        color: $color-white;
+        background-color: $color-white;
+        color: $color-primary;
         font-size: $font-normal;
       }
-      .dz-icon-search{
+      .tag-search{
         position: absolute;
         top: torem(36px);
         left: torem(30px);
+        color: $color-primary;
+        font-size: $font-lg;
       }
+    }
+  }
+
+  .right{
+    .menu{
+      display: inline-block;
+      margin-left: torem(10px);
+      color: $color-white;
+      font-size: $font-lg;
     }
   }
 }
