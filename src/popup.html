@@ -39,25 +39,25 @@
         mounted:function () {
             let _t = this
             $('#btn_toast').click(function () {
-                _t.toast('这是一条toast的消息')
+                _t.toast('This is a toast message')
             })
             $('#btn_alert').click(function () {
-                _t.alert({content: '这是alert的内容', position: 'bottom', okCallBack: function () {
-                    _t.toast('alert 关闭')
+                _t.alert({content: 'This is an alert message', position: 'bottom', okCallBack: function () {
+                    _t.toast('alert closed')
                 }})
-                _t.alert({content: '这是alert2的内容', position: 'bottom', okCallBack: function () {
-                    _t.toast('alert2 关闭')
+                _t.alert({content: 'This is another alert message', position: 'bottom', okCallBack: function () {
+                    _t.toast('alert2 closed')
                 }})
             })
             $('#btn_confirm').click(function () {
                 _t.confirm({
-                    content: '这是confirm的内容',
+                    content: 'This is a confirm message',
                     position: 'bottom',
                     okCallBack: function () {
-                        _t.toast('confirm 关闭')
+                        _t.toast('confirm closed')
                     },
                     cancelCallBack: function () {
-                        _t.toast('cancel 关闭')
+                        _t.toast('cancel closed')
                     },
                 })
             })

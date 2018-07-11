@@ -125,6 +125,13 @@ module.exports = {
                 chunks: ['jquery','base'],
             }
         ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/cell.html',// 模板文件
+                filename: 'cell.html',
+                chunks: ['jquery','base'],
+            }
+        ),
         new CopyWebpackPlugin([
             {from: './src/img', to: './img'}
         ]),
