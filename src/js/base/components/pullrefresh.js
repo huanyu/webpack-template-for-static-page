@@ -1,7 +1,7 @@
 /**
  * Created by hb on 2018/7/4.
  */
-
+const MAX_DRAG = 100 // 最大拖动距离
 export class PullRefresh {
     constructor (element, loadingElement, onTrigger) {
         this.target = element
@@ -20,7 +20,7 @@ export class PullRefresh {
         this.distance = 0
         this.target.style.cssText = `transition: transform 0.2s ease-out;transform: translateY(0px);-webkit-transform: -webkit-translateY(0px);`
         this.loading.style.cssText = `transition: height 0.2s ease-out;height:0px;`
-        $('#pullLoading').removeClass('active')
+        $(this.loading).removeClass('active')
         this.target.addEventListener('touchstart', this.onTouchStart)
     }
 
@@ -34,7 +34,7 @@ export class PullRefresh {
         this.target.addEventListener('touchend', this.onTouchEnd)
     }
 
-    async _onTouchMove (e) {
+    _onTouchMove (e) {
         if (this.activated) {
             return
         }
@@ -44,18 +44,10 @@ export class PullRefresh {
         if (isSwipeDown) {
             if (!isContentScrolled) {
                 e.preventDefault()
-                this.distance += (e.touches[0].screenY - this.lastY)
-                this.target.style.cssText = `transform: translateY(${this.distance}px);-webkit-transform: -webkit-translateY(${this.distance}px);`
-                this.loading.style.cssText = `height: ${this.distance}px;`
-                if (this.distance >= 100) {
-                    this.activated = true
-                    this.clearEvent()
-                    $('#pullLoading').addClass('active')
-                    if (this.onTriggerListener) {
-                        await this.onTriggerListener()
-                        this.activated = false
-                        this.start()
-                    }
+                if (this.distance < MAX_DRAG) {
+                    this.distance += (e.touches[0].screenY - this.lastY)
+                    this.target.style.cssText = `transform: translateY(${this.distance}px);-webkit-transform: -webkit-translateY(${this.distance}px);`
+                    this.loading.style.cssText = `height: ${this.distance}px;`
                 }
             }
         } else {
@@ -70,12 +62,23 @@ export class PullRefresh {
         this.lastY = e.touches[0].screenY
     }
 
-    _onTouchEnd () {
+    async _onTouchEnd () {
         // e.preventDefault()
         this.clearEvent()
-        this.target.style.cssText = `transition: transform 0.2s ease-out;transform: translateY(0px);-webkit-transform: -webkit-translateY(0px);`
-        this.loading.style.cssText = `transition: height 0.2s ease-out;height:0px;`
-        this.distance = 0
+        if (this.distance >= MAX_DRAG) {
+            this.activated = true
+            this.clearEvent()
+            $(this.loading).addClass('active')
+            if (this.onTriggerListener) {
+                let r = await this.onTriggerListener()
+                this.activated = false
+                this.start()
+            }
+        } else {
+            this.target.style.cssText = `transition: transform 0.2s ease-out;transform: translateY(0px);-webkit-transform: -webkit-translateY(0px);`
+            this.loading.style.cssText = `transition: height 0.2s ease-out;height:0px;`
+            this.distance = 0
+        }
     }
 
     clearEvent () {

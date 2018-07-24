@@ -19,7 +19,7 @@ window.__mfwPage = {
     },
 
     async onLoading () {
-        console.log('loading', this)
+        console.log('loading')
         let res = await this.loadData()
         console.log(res)
     }
