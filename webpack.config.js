@@ -16,7 +16,8 @@ module.exports = {
     entry: {
     	jquery: 'jquery',
         base: './src/js/base.js',
-        index: './src/js/index.js'
+        index: './src/js/index.js',
+        pullrefresh: './src/js/pullrefresh.js',
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -130,6 +131,13 @@ module.exports = {
                 template: './src/cell.html',// 模板文件
                 filename: 'cell.html',
                 chunks: ['jquery','base'],
+            }
+        ),
+        new HtmlWebpackPlugin(
+            {
+                template: './src/pullrefresh.html',// 模板文件
+                filename: 'pullrefresh.html',
+                chunks: ['jquery','base', 'pullrefresh'],
             }
         ),
         new CopyWebpackPlugin([

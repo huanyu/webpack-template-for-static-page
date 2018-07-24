@@ -1,0 +1,68 @@
+@import "base/functions";
+@import "base/vars";
+
+.page-pullrefresh{
+  .mfw-page-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  .page-content{
+    position: fixed;
+    top: torem(100px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .pulldown-content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px -1px 200px 1px #888888;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .refresh-loading{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #35d2b7;
+    .loading-content{
+      position: absolute;
+      bottom: torem(80px);
+      left: 0;
+      right: 0;
+      color: #fff;
+
+      .fa-arrow-down{
+        vertical-align: middle;
+        margin-right: torem(20px);
+        font-size: $font-lg;
+        transition: transform 0.2s ease-out;
+      }
+      .loading-text{
+        display: none;
+      }
+    }
+    &.active{
+      .fa-arrow-down{
+        transform: rotate(180deg);
+      }
+      .static-text{
+        display: none;
+      }
+      .loading-text{
+        display: inline;
+      }
+    }
+  }
+
+}
