@@ -1,7 +1,7 @@
 /**
  * Created by hb on 2018/7/4.
  */
-const MAX_DRAG = 100 // 最大拖动距离
+const MAX_DRAG = 200 // 最大拖动距离
 export class PullRefresh {
     constructor (element, loadingElement, onTrigger) {
         this.target = element
@@ -14,13 +14,15 @@ export class PullRefresh {
         this.onTouchMove = this._onTouchMove.bind(this)
         this.onTouchEnd = this._onTouchEnd.bind(this)
         this.target.addEventListener('touchstart', this.onTouchStart)
+        this.ready = false
     }
 
     start () {
         this.distance = 0
         this.target.style.cssText = `transition: transform 0.2s ease-out;transform: translateY(0px);-webkit-transform: -webkit-translateY(0px);`
         this.loading.style.cssText = `transition: height 0.2s ease-out;height:0px;`
-        $(this.loading).removeClass('active')
+        $(this.loading).removeClass('active').removeClass('ready')
+        this.ready = false
         this.target.addEventListener('touchstart', this.onTouchStart)
     }
 
@@ -48,6 +50,9 @@ export class PullRefresh {
                     this.distance += (e.touches[0].screenY - this.lastY)
                     this.target.style.cssText = `transform: translateY(${this.distance}px);-webkit-transform: -webkit-translateY(${this.distance}px);`
                     this.loading.style.cssText = `height: ${this.distance}px;`
+                } else if (!this.ready) {
+                    this.ready = true
+                    $(this.loading).addClass('ready')
                 }
             }
         } else {
@@ -57,6 +62,10 @@ export class PullRefresh {
                 this.distance = this.distance < 0 ? 0 : this.distance
                 this.target.style.cssText = `transform: translateY(${this.distance}px);-webkit-transform: -webkit-translateY(${this.distance}px);`
                 this.loading.style.cssText = `height: ${this.distance}px;`
+                if (this.ready) {
+                    $(this.loading).removeClass('ready')
+                    this.ready = false
+                }
             }
         }
         this.lastY = e.touches[0].screenY

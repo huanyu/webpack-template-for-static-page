@@ -53,10 +53,12 @@
         display: none;
       }
     }
-    &.active{
+    &.ready{
       .fa-arrow-down{
         transform: rotate(180deg);
       }
+    }
+    &.active{
       .static-text{
         display: none;
       }
