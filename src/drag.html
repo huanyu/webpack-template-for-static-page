@@ -62,7 +62,7 @@
             }
             var tplData = {listData: listData}
             $('#listContainer').html(this.template.tpl_dragList(tplData))
-
+            console.log('Sortable init', this.Sortable)
             // dragable_list must be positioned
             var sortable = new this.Sortable(document.getElementById('dragable_list'), {
                 lockX: true,

@@ -5,11 +5,11 @@ import '../scss/base.scss'
 
 import {toast, alert, confirm} from './base/components/popup'
 import {Tab, TabNavigator} from './base/components/tab'
-import {PullRefresh} from './base/components/pullrefresh'
-import Sortable from 'sortablejs'
+// import {PullRefresh} from './base/components/pullrefresh'
+// import Sortable from 'sortablejs'
 const Handlebars = require('handlebars/dist/handlebars.min')
 
-const initPage = function (page) {
+const initPage = async (page) => {
     if (page) {
         if (page.hasOwnProperty('components')){
             for(var i = 0; i < page.components.length; i++) {
@@ -30,10 +30,16 @@ const initPage = function (page) {
                         page.TabNavigator = TabNavigator;
                         break;
                     case 'PullRefresh':
-                        page.PullRefresh = PullRefresh;
+                        let res1 = await require.ensure([], require => {
+                            return require('./base/components/pullrefresh')
+                        })
+                        page.PullRefresh = res1.PullRefresh
                         break;
                     case 'Sortable':
-                        page.Sortable = Sortable;
+                        let res = await require.ensure([], require => {
+                            return require('sortablejs')
+                        })
+                        page.Sortable = res
                         break;
                     default:
                         break;
