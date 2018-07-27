@@ -1,0 +1,18 @@
+@import "base/functions";
+@import "base/vars";
+
+.page-drag{
+  .mfw-cells-list{
+    position: relative;
+  }
+  .list-item{
+    background-color: #fff;
+  }
+  .drag-handle{
+    font-size: torem(40px);
+    cursor: hand;
+  }
+  .sortable-ghost{
+    opacity: 0;
+  }
+}

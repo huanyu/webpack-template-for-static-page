@@ -6,6 +6,7 @@ import '../scss/base.scss'
 import {toast, alert, confirm} from './base/components/popup'
 import {Tab, TabNavigator} from './base/components/tab'
 import {PullRefresh} from './base/components/pullrefresh'
+import Sortable from 'sortablejs'
 const Handlebars = require('handlebars/dist/handlebars.min')
 
 const initPage = function (page) {
@@ -30,6 +31,9 @@ const initPage = function (page) {
                         break;
                     case 'PullRefresh':
                         page.PullRefresh = PullRefresh;
+                        break;
+                    case 'Sortable':
+                        page.Sortable = Sortable;
                         break;
                     default:
                         break;

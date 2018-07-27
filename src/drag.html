@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>Drag</title>
+</head>
+<body>
+<div class="mfw-page page-drag">
+    <div class="mfw-page-header">
+        <div class="left"><a href="javascript:history.back();" class="btn-back"><em class="arrow-l big"></em></a></div>
+        <div class="middle"><p class="title text-ellipsis1">drag</p></div>
+    </div>
+
+    <div class="mfw-page-section">
+        <div class="section-header clear-fix">
+            <span class="tit">Drag</span>
+        </div>
+        <div id="listContainer" class="section-content">
+        </div>
+    </div>
+
+</div>
+<script type="text/template" id="tpl_dragList">
+    <ul id="dragable_list" class="mfw-cells-list">
+        {{#each listData}}
+        <li class="list-item">
+            <div class="mfw-cell">
+                <label>item {{index}}</label>
+                <div class="cell-content">
+                    <a>
+                        <div class="cell-right">
+                            <div class="desc">
+                                <em class="img fas fa-arrows-alt drag-handle"></em>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <em class="sprite icon-wallet float-right"></em>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script type="text/javascript">
+    window.mfwPage = {
+        components: ['Sortable'],
+        templates: ['tpl_dragList'],
+        mounted:function () {
+            var listData = []
+            let i = 1
+            while (i < 20) {
+                listData.push({index: i})
+                i++
+            }
+            var tplData = {listData: listData}
+            $('#listContainer').html(this.template.tpl_dragList(tplData))
+
+            // dragable_list must be positioned
+            var sortable = new this.Sortable(document.getElementById('dragable_list'), {
+                lockX: true,
+                fixPageScroll: true,
+                handle: '.drag-handle',
+                ghostClass: "sortable-ghost",
+                chosenClass: "sortable-chosen"
+            })
+        }
+    }
+</script>
+</body>
+</html>
